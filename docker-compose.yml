@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - itr_db:/app/data
+      - itr_chroma:/app/chroma_db
+      - itr_audio:/app/static/audio
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - DATABASE_URL=sqlite:///./data/itr_calculator.db
+      - CHROMA_PERSIST_DIRECTORY=./chroma_db
+      - CORS_ORIGINS=["http://localhost:3000","http://frontend:80"]
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  itr_db:
+  itr_chroma:
+  itr_audio:

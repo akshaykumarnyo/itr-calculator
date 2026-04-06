@@ -1,0 +1,209 @@
+# ═══════════════════════════════════════════════
+#  ITR Calculator — .gitignore
+# ═══════════════════════════════════════════════
+
+# ── Python ──────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env.bak
+ENV/
+env.bak/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+nosetests.xml
+test-results/
+
+# Type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# ── Environment & Secrets ────────────────────────
+.env
+.env.local
+.env.production
+.env.staging
+*.env
+!.env.example
+
+
+# ── Database ─────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+itr_calculator.db
+itr_calculator.db-shm
+itr_calculator.db-wal
+
+# ── Vector Store ─────────────────────────────────
+chroma_db/
+chromadb/
+*.chroma
+
+# ── Audio / Media ────────────────────────────────
+static/audio/*.mp3
+static/audio/*.wav
+static/audio/*.ogg
+static/audio/*.m4a
+static/audio/*.webm
+
+# Keep the static/audio directory
+!static/audio/.gitkeep
+
+# ── Logs ─────────────────────────────────────────
+*.log
+*.log.*
+logs/
+log/
+
+# ── Node / Frontend ──────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Build output
+frontend/dist/
+frontend/build/
+frontend/.vite/
+
+# Cache
+.npm/
+.yarn/
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# ── OS Files ─────────────────────────────────────
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V8
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ── IDE / Editor ─────────────────────────────────
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# JetBrains (PyCharm, WebStorm)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ── Docker ───────────────────────────────────────
+# Uncomment if you don't want to commit Docker files
+# docker-compose.override.yml
+
+# ── Redis ────────────────────────────────────────
+dump.rdb
+redis.log
+appendonly.aof
+
+# ── Whisper / AI Models ──────────────────────────
+# Large model files
+*.pt
+*.bin
+*.gguf
+*.onnx
+models/
+whisper_models/
+.cache/huggingface/
+.cache/whisper/
+
+# ── Temporary Files ──────────────────────────────
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+
+# ── Uploads ──────────────────────────────────────
+uploads/
+user_uploads/
+
+# ── Certificates / Keys ──────────────────────────
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub

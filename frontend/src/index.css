@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-navy-950 text-slate-100 font-body;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(255,117,20,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.04) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-navy-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-saffron-600 rounded-full; }
+}
+
+@layer components {
+  .card {
+    @apply bg-navy-800 border border-white/[0.06] rounded-2xl p-6;
+    background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(8,15,30,0.98) 100%);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-medium text-white transition-all duration-200;
+    background: linear-gradient(135deg, #ff7514, #c7420a);
+    box-shadow: 0 4px 15px rgba(255,117,20,0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(255,117,20,0.5);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl font-medium text-slate-200 border border-white/10 transition-all duration-200;
+    background: rgba(255,255,255,0.04);
+  }
+  .btn-secondary:hover {
+    @apply border-saffron-500/40;
+    background: rgba(255,117,20,0.08);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-white/10 text-slate-100 text-sm transition-all duration-200;
+    background: rgba(255,255,255,0.04);
+    outline: none;
+  }
+  .input-field:focus {
+    @apply border-saffron-500/50;
+    box-shadow: 0 0 0 3px rgba(255,117,20,0.1);
+  }
+  .input-field::placeholder { @apply text-slate-500; }
+
+  .label {
+    @apply block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wide;
+  }
+
+  .badge-saffron {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+    background: rgba(255,117,20,0.15);
+    color: #ff9438;
+    border: 1px solid rgba(255,117,20,0.2);
+  }
+
+  .badge-jade {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+    background: rgba(16,185,129,0.12);
+    color: #34d399;
+    border: 1px solid rgba(16,185,129,0.2);
+  }
+
+  .badge-red {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+    background: rgba(239,68,68,0.12);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+
+  .stat-card {
+    @apply card flex flex-col gap-1;
+  }
+  .stat-value {
+    @apply font-heading text-2xl font-bold;
+  }
+  .stat-label {
+    @apply text-xs text-slate-400 uppercase tracking-wide;
+  }
+
+  .section-title {
+    @apply font-heading text-lg font-bold text-white mb-4;
+  }
+
+  /* Mic button pulse animation */
+  .mic-recording {
+    animation: micPulse 1.2s ease-in-out infinite;
+  }
+  @keyframes micPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,117,20,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(255,117,20,0); }
+  }
+
+  /* Number animation */
+  .animate-number {
+    animation: countUp 0.8s ease-out forwards;
+  }
+
+  /* Chat bubble */
+  .chat-bubble-user {
+    @apply ml-auto px-4 py-3 rounded-2xl rounded-tr-sm text-sm max-w-[80%];
+    background: linear-gradient(135deg, rgba(255,117,20,0.25), rgba(199,66,10,0.2));
+    border: 1px solid rgba(255,117,20,0.2);
+  }
+  .chat-bubble-ai {
+    @apply px-4 py-3 rounded-2xl rounded-tl-sm text-sm max-w-[85%];
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: rgba(255,255,255,0.06);
+  }
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700;
+    background: linear-gradient(90deg, #ff7514, #ff9438);
+  }
+
+  /* Glow divider */
+  .glow-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,117,20,0.3), transparent);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #ff9438, #ff7514);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-jade {
+    background: linear-gradient(135deg, #34d399, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
